@@ -11,6 +11,8 @@ extends Area2D
 @export var graphic_washer_full_open_wet : Texture2D
 @export var graphic_washer_full_open_dry_clean : Texture2D
 @export var graphic_washer_full_open_dry_dirty : Texture2D
+@export var graphic_washer_spinner_wet : Texture2D
+@export var graphic_washer_spinner_dirty : Texture2D
 
 @export_group("Dryer Graphics")
 @export var graphic_dryer_empty_closed : Texture2D
@@ -21,8 +23,11 @@ extends Area2D
 @export var graphic_dryer_full_open_wet : Texture2D
 @export var graphic_dryer_full_open_dry_clean : Texture2D
 @export var graphic_dryer_full_open_dry_dirty : Texture2D
+@export var graphic_dryer_spinner_wet : Texture2D
+@export var graphic_dryer_spinner_dirty : Texture2D
 
 @onready var graphic : Sprite2D = $Sprite2D
+@onready var spinner : Sprite2D = $Spinner
 @onready var timer : Timer = $Timer
 
 var open : bool = false
@@ -39,6 +44,9 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	var kind := "dryer" if is_dryer else "washer"
 	graphic.texture = get("graphic_%s_%s" % [kind, _state_suffix()])
+	spinner.visible = running
+	if running:
+		spinner.texture = get("graphic_%s_spinner_%s" % [kind, "wet" if wet else "dirty"])
 
 func _state_suffix() -> String:
 	var pose := "open" if open else "closed"

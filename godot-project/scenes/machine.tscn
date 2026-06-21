@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://c6gyuinbyt6g1" path="res://assets/washer_full_closed_dry_dirty.png" id="6_hpsch"]
 [ext_resource type="Texture2D" uid="uid://s5aebsserlxs" path="res://assets/washer_full_open_dry_clean.png" id="7_25hvn"]
 [ext_resource type="Texture2D" uid="uid://1cjaddcxtmj2" path="res://assets/washer_full_open_dry_dirty.png" id="8_aee78"]
+[ext_resource type="Texture2D" uid="uid://j1w1jsa68xa6" path="res://assets/washer_spinner_wet.png" id="10_8ub33"]
+[ext_resource type="Script" uid="uid://dt28mp1fk8a8q" path="res://scripts/spinner.gd" id="11_8rvve"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a5lir"]
 size = Vector2(500, 500)
@@ -31,12 +33,20 @@ graphic_dryer_full_closed_dry_dirty = ExtResource("6_hpsch")
 graphic_dryer_full_open_wet = ExtResource("6_aee78")
 graphic_dryer_full_open_dry_clean = ExtResource("7_25hvn")
 graphic_dryer_full_open_dry_dirty = ExtResource("8_aee78")
+graphic_washer_spinner_wet = ExtResource("10_8ub33")
+graphic_washer_spinner_dirty = ExtResource("10_8ub33")
+graphic_dryer_spinner_wet = ExtResource("10_8ub33")
+graphic_dryer_spinner_dirty = ExtResource("10_8ub33")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1850751553]
 shape = SubResource("RectangleShape2D_a5lir")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2117422900]
 texture = ExtResource("1_a5lir")
+
+[node name="Spinner" type="Sprite2D" parent="." unique_id=1088794798]
+texture = ExtResource("10_8ub33")
+script = ExtResource("11_8rvve")
 
 [node name="Timer" type="Timer" parent="." unique_id=2117422901]
 wait_time = 5.0
