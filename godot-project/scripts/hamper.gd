@@ -3,7 +3,8 @@ extends RigidBody2D
 signal dropped(hamper: RigidBody2D)
 
 @export var graphic_empty : Texture2D
-@export var graphic_full_dry : Texture2D
+@export var graphic_full_dry_clean : Texture2D
+@export var graphic_full_dry_dirty : Texture2D
 @export var graphic_full_wet : Texture2D
 
 @export var drag_force : float = 500.0

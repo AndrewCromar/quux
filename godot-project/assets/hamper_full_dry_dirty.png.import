@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8kpavw4okk68"
-path="res://.godot/imported/hamper_full_dry.png-f092810f5b9247ad4ef76d3aaee42c84.ctex"
+uid="uid://0kpciit868wd"
+path="res://.godot/imported/hamper_full_dry_dirty.png-dc1d9e5adf15ee172790864e36d6aa9a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/hamper_full_dry.png"
-dest_files=["res://.godot/imported/hamper_full_dry.png-f092810f5b9247ad4ef76d3aaee42c84.ctex"]
+source_file="res://assets/hamper_full_dry_dirty.png"
+dest_files=["res://.godot/imported/hamper_full_dry_dirty.png-dc1d9e5adf15ee172790864e36d6aa9a.ctex"]
 
 [params]
 

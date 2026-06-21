@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" uid="uid://db0y1hi4kkp4e" path="res://scripts/hamper.gd" id="1_jnhrs"]
 [ext_resource type="Texture2D" uid="uid://dfxrfcxi0h5pj" path="res://assets/hamper_empty.png" id="2_jnhrs"]
-[ext_resource type="Texture2D" uid="uid://c8kpavw4okk68" path="res://assets/hamper_full_dry.png" id="3_qiu2a"]
+[ext_resource type="Texture2D" uid="uid://byq6kmlcfq14y" path="res://assets/hamper_full_dry_clean.png" id="3_tq2a4"]
+[ext_resource type="Texture2D" uid="uid://0kpciit868wd" path="res://assets/hamper_full_dry_dirty.png" id="4_n7ggx"]
 [ext_resource type="Texture2D" uid="uid://buy1x5fhjsxvv" path="res://assets/hamper_full_wet.png" id="4_tq2a4"]
 
 [node name="Hamper" type="RigidBody2D" unique_id=1841701046 groups=["hamper"]]
@@ -10,8 +11,11 @@ z_index = 1
 input_pickable = true
 script = ExtResource("1_jnhrs")
 graphic_empty = ExtResource("2_jnhrs")
-graphic_full_dry = ExtResource("3_qiu2a")
+graphic_full_dry_clean = ExtResource("3_tq2a4")
+graphic_full_dry_dirty = ExtResource("4_n7ggx")
 graphic_full_wet = ExtResource("4_tq2a4")
+drag_force = null
+drag_damping = null
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="." unique_id=1385030802]
 polygon = PackedVector2Array(-175, -30, 175, -30, 120, 100, -120, 100)

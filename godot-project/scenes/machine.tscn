@@ -4,9 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://bx1jbc00tvodf" path="res://assets/washer_empty_closed.png" id="1_a5lir"]
 [ext_resource type="Texture2D" uid="uid://m83j6wsk2qdm" path="res://assets/washer_empty_open.png" id="3_448ux"]
 [ext_resource type="Texture2D" uid="uid://b8bbcvtnf16yj" path="res://assets/washer_full_closed_wet.png" id="4_wqnt1"]
-[ext_resource type="Texture2D" uid="uid://wchaxwf3431j" path="res://assets/washer_full_closed_dry.png" id="5_25hvn"]
+[ext_resource type="Texture2D" uid="uid://4w4rkakemdwm" path="res://assets/washer_full_closed_dry_clean.png" id="5_aee78"]
 [ext_resource type="Texture2D" uid="uid://cgewgnqjrkdyg" path="res://assets/washer_full_open_wet.png" id="6_aee78"]
-[ext_resource type="Texture2D" uid="uid://cpgpa58v2dnrs" path="res://assets/washer_full_open_dry.png" id="7_hpsch"]
+[ext_resource type="Texture2D" uid="uid://c6gyuinbyt6g1" path="res://assets/washer_full_closed_dry_dirty.png" id="6_hpsch"]
+[ext_resource type="Texture2D" uid="uid://s5aebsserlxs" path="res://assets/washer_full_open_dry_clean.png" id="7_25hvn"]
+[ext_resource type="Texture2D" uid="uid://1cjaddcxtmj2" path="res://assets/washer_full_open_dry_dirty.png" id="8_aee78"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a5lir"]
 size = Vector2(500, 500)
@@ -16,10 +18,11 @@ script = ExtResource("1_73k52")
 graphic_empty_closed = ExtResource("1_a5lir")
 graphic_empty_open = ExtResource("3_448ux")
 graphic_full_closed_wet = ExtResource("4_wqnt1")
-graphic_full_closed_dry = ExtResource("5_25hvn")
+graphic_full_closed_dry_clean = ExtResource("5_aee78")
+graphic_full_closed_dry_dirty = ExtResource("6_hpsch")
 graphic_full_open_wet = ExtResource("6_aee78")
-graphic_full_open_dry = ExtResource("7_hpsch")
-is_dryer = null
+graphic_full_open_dry_clean = ExtResource("7_25hvn")
+graphic_full_open_dry_dirty = ExtResource("8_aee78")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1850751553]
 shape = SubResource("RectangleShape2D_a5lir")

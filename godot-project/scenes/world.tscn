@@ -23,5 +23,12 @@ shape = SubResource("RectangleShape2D_e5uuo")
 [node name="Hamper" parent="." unique_id=1841701046 instance=ExtResource("1_nnsk1")]
 position = Vector2(0, 358)
 
+[node name="Hamper2" parent="." unique_id=339179687 instance=ExtResource("1_nnsk1")]
+position = Vector2(0, 358)
+
 [node name="Machine" parent="." unique_id=844803869 instance=ExtResource("2_rwgxs")]
-position = Vector2(630, 288)
+position = Vector2(-610, 288)
+
+[node name="Machine2" parent="." unique_id=1409377652 instance=ExtResource("2_rwgxs")]
+position = Vector2(627, 288)
+is_dryer = true
