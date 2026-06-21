@@ -1,21 +1,27 @@
 [gd_scene format=3 uid="uid://cm4aftjwe5wi4"]
 
 [ext_resource type="PackedScene" uid="uid://mqjis7drf21v" path="res://scenes/hamper.tscn" id="1_nnsk1"]
+[ext_resource type="PackedScene" uid="uid://ck2fs1yqbf2nd" path="res://scenes/machine.tscn" id="2_rwgxs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e5uuo"]
-size = Vector2(1920, 20)
+size = Vector2(5760, 100)
 
 [node name="World" type="Node2D" unique_id=1794034208]
 
-[node name="Ground" type="StaticBody2D" parent="." unique_id=484946429]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=418939702]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=1185455419]
+[node name="Y Bounds" type="StaticBody2D" parent="." unique_id=484946429]
+
+[node name="Top" type="CollisionShape2D" parent="Y Bounds" unique_id=157087523]
+position = Vector2(0, -590)
+shape = SubResource("RectangleShape2D_e5uuo")
+
+[node name="Bottom" type="CollisionShape2D" parent="Y Bounds" unique_id=1185455419]
+position = Vector2(0, 590)
 shape = SubResource("RectangleShape2D_e5uuo")
 
 [node name="Hamper" parent="." unique_id=1841701046 instance=ExtResource("1_nnsk1")]
-position = Vector2(0, -314)
+position = Vector2(0, 358)
 
-[node name="Hamper2" parent="." unique_id=1587393949 instance=ExtResource("1_nnsk1")]
-position = Vector2(0, -314)
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=418939702]
+[node name="Machine" parent="." unique_id=844803869 instance=ExtResource("2_rwgxs")]
+position = Vector2(630, 288)
