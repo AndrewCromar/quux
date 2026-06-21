@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctt0p1dvm617j"
-path="res://.godot/imported/washer_full_closed.png-7d0606d16e94ecd3af9b80aaa01a4364.ctex"
+uid="uid://b8bbcvtnf16yj"
+path="res://.godot/imported/washer_full_closed_wet.png-3abed2e90f2e3d88d59e19fa803d3cda.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/washer_full_closed.png"
-dest_files=["res://.godot/imported/washer_full_closed.png-7d0606d16e94ecd3af9b80aaa01a4364.ctex"]
+source_file="res://assets/washer_full_closed_wet.png"
+dest_files=["res://.godot/imported/washer_full_closed_wet.png-3abed2e90f2e3d88d59e19fa803d3cda.ctex"]
 
 [params]
 

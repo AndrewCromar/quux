@@ -1,5 +1,7 @@
 extends RigidBody2D
 
+signal dropped(hamper: RigidBody2D)
+
 @export var graphic_empty : Texture2D
 @export var graphic_full_dry : Texture2D
 @export var graphic_full_wet : Texture2D
@@ -30,4 +32,6 @@ func _input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if not event.pressed:
-			dragging = false
+			if dragging:
+				dragging = false
+				dropped.emit(self)
