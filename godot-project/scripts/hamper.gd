@@ -16,9 +16,17 @@ var dragging : bool
 
 var full : bool = true
 var wet : bool = false
+var clean : bool = false
 
 func _physics_process(_delta: float) -> void:
-	graphic.texture = (graphic_full_wet if wet else graphic_full_dry) if full else graphic_empty
+	if not full:
+		graphic.texture = graphic_empty
+	elif wet:
+		graphic.texture = graphic_full_wet
+	elif clean:
+		graphic.texture = graphic_full_dry_clean
+	else:
+		graphic.texture = graphic_full_dry_dirty
 
 	if dragging:
 		var to_mouse := get_global_mouse_position() - global_position

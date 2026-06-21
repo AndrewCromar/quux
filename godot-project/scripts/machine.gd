@@ -18,6 +18,7 @@ extends Area2D
 var open : bool = false
 var full : bool = false
 var wet : bool = false
+var clean : bool = false
 var running : bool = false
 
 func _ready() -> void:
@@ -28,10 +29,12 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if not full:
 		graphic.texture = graphic_empty_open if open else graphic_empty_closed
-	#elif open:
-		#graphic.texture = graphic_full_open_wet if wet else graphic_full_open_dry
-	#else:
-		#graphic.texture = graphic_full_closed_wet if wet else graphic_full_closed_dry
+	elif wet:
+		graphic.texture = graphic_full_open_wet if open else graphic_full_closed_wet
+	elif clean:
+		graphic.texture = graphic_full_open_dry_clean if open else graphic_full_closed_dry_clean
+	else:
+		graphic.texture = graphic_full_open_dry_dirty if open else graphic_full_closed_dry_dirty
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("hamper"):
@@ -48,16 +51,18 @@ func _on_hamper_dropped(hamper: RigidBody2D) -> void:
 	# Fired when the user releases a hamper that is currently over this machine.
 	if not open:
 		return
-	if not full and hamper.full and hamper.wet == is_dryer:
+	if not full and hamper.full and _accepts(hamper.wet, hamper.clean):
 		# Dump the full hamper into the empty, open machine. A washer only
-		# accepts dry laundry, a dryer only accepts wet.
+		# accepts dirty+dry laundry, a dryer only accepts wet (just-washed).
 		full = true
 		wet = hamper.wet
+		clean = hamper.clean
 		hamper.full = false
 	elif full and not hamper.full:
 		# Pull the processed laundry back into an empty hamper.
 		hamper.full = true
 		hamper.wet = wet
+		hamper.clean = clean
 		full = false
 
 func _input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
@@ -66,13 +71,19 @@ func _input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 			return  # locked shut while a cycle is running
 		if open:
 			open = false
-			# A cycle can only begin from closed + dry (i.e. not yet processed
-			# here): washer runs dry laundry, dryer runs wet. Once it's done it
-			# can't be re-run.
-			if full and wet == is_dryer:
+			# A cycle can only begin from closed with unprocessed contents: a
+			# washer runs dirty+dry laundry, a dryer runs wet (just-washed).
+			# Once it's done the contents change state, so it can't be re-run.
+			if full and _accepts(wet, clean):
 				_start_cycle()
 		else:
 			open = true
+
+# What this machine will take in / run on, given laundry that is p_wet/p_clean.
+func _accepts(p_wet: bool, p_clean: bool) -> bool:
+	if is_dryer:
+		return p_wet                      # dryer takes just-washed (wet) laundry
+	return not p_wet and not p_clean      # washer takes dirty, dry laundry
 
 func _start_cycle() -> void:
 	running = true
@@ -80,4 +91,9 @@ func _start_cycle() -> void:
 
 func _on_cycle_finished() -> void:
 	running = false
-	wet = not is_dryer  # washer leaves it wet, dryer leaves it dry
+	if is_dryer:
+		wet = false   # dryer: leaves it clean + dry (finished)
+		clean = true
+	else:
+		wet = true    # washer: leaves it clean + wet
+		clean = true
