@@ -25,7 +25,8 @@ window/stretch/mode="canvas_items"
 [file_customization]
 
 folder_colors={
-"res://scenes/": "red"
+"res://scenes/": "red",
+"res://scripts/": "orange"
 }
 
 [physics]

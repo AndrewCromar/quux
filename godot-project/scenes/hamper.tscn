@@ -1,11 +1,14 @@
 [gd_scene format=3 uid="uid://mqjis7drf21v"]
 
 [ext_resource type="Texture2D" uid="uid://wgbp4vh5wvfm" path="res://icon.svg" id="1_j62j5"]
+[ext_resource type="Script" uid="uid://db0y1hi4kkp4e" path="res://scripts/hamper.gd" id="1_jnhrs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jnhrs"]
 size = Vector2(128, 128)
 
 [node name="Hamper" type="RigidBody2D" unique_id=1841701046]
+input_pickable = true
+script = ExtResource("1_jnhrs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=416942351]
 shape = SubResource("RectangleShape2D_jnhrs")
