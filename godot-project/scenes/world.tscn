@@ -1,11 +1,21 @@
 [gd_scene format=3 uid="uid://cm4aftjwe5wi4"]
 
+[ext_resource type="PackedScene" uid="uid://mqjis7drf21v" path="res://scenes/hamper.tscn" id="1_nnsk1"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e5uuo"]
 size = Vector2(1920, 20)
 
 [node name="World" type="Node2D" unique_id=1794034208]
 
-[node name="Ground" type="Area2D" parent="." unique_id=1765293167]
+[node name="Ground" type="StaticBody2D" parent="." unique_id=484946429]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=1185455419]
 shape = SubResource("RectangleShape2D_e5uuo")
+
+[node name="Hamper" parent="." unique_id=1841701046 instance=ExtResource("1_nnsk1")]
+position = Vector2(0, -314)
+
+[node name="Hamper2" parent="." unique_id=1587393949 instance=ExtResource("1_nnsk1")]
+position = Vector2(0, -314)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=418939702]

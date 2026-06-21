@@ -1,3 +1,14 @@
 [gd_scene format=3 uid="uid://mqjis7drf21v"]
 
-[node name="Hamper" type="Node2D" unique_id=253480829]
+[ext_resource type="Texture2D" uid="uid://wgbp4vh5wvfm" path="res://icon.svg" id="1_j62j5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jnhrs"]
+size = Vector2(128, 128)
+
+[node name="Hamper" type="RigidBody2D" unique_id=1841701046]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=416942351]
+shape = SubResource("RectangleShape2D_jnhrs")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1341705435]
+texture = ExtResource("1_j62j5")
