@@ -4,33 +4,26 @@
 [ext_resource type="PackedScene" uid="uid://ck2fs1yqbf2nd" path="res://scenes/machine.tscn" id="2_rwgxs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e5uuo"]
-size = Vector2(5760, 100)
+size = Vector2(5000, 100)
 
 [node name="World" type="Node2D" unique_id=1794034208]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=418939702]
-position = Vector2(0, 432)
 zoom = Vector2(5, 5)
 
 [node name="Y Bounds" type="StaticBody2D" parent="." unique_id=484946429]
 
 [node name="Top" type="CollisionShape2D" parent="Y Bounds" unique_id=157087523]
-position = Vector2(0, -590)
+position = Vector2(0, -158)
 shape = SubResource("RectangleShape2D_e5uuo")
 
 [node name="Bottom" type="CollisionShape2D" parent="Y Bounds" unique_id=1185455419]
-position = Vector2(0, 590)
+position = Vector2(0, 158)
 shape = SubResource("RectangleShape2D_e5uuo")
 
+[node name="Machine" parent="." unique_id=1409377652 instance=ExtResource("2_rwgxs")]
+position = Vector2(-127, 83)
+
 [node name="Hamper" parent="." unique_id=1841701046 instance=ExtResource("1_nnsk1")]
-position = Vector2(0, 358)
 
 [node name="Hamper2" parent="." unique_id=339179687 instance=ExtResource("1_nnsk1")]
-position = Vector2(0, 358)
-
-[node name="Machine" parent="." unique_id=844803869 instance=ExtResource("2_rwgxs")]
-position = Vector2(-111, 515)
-
-[node name="Machine2" parent="." unique_id=1409377652 instance=ExtResource("2_rwgxs")]
-position = Vector2(627, 288)
-is_dryer = true
