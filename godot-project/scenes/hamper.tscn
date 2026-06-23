@@ -1,25 +1,110 @@
 [gd_scene format=3 uid="uid://mqjis7drf21v"]
 
 [ext_resource type="Script" uid="uid://db0y1hi4kkp4e" path="res://scripts/hamper.gd" id="1_jnhrs"]
-[ext_resource type="Texture2D" uid="uid://dfxrfcxi0h5pj" path="res://assets/hamper_empty.png" id="2_jnhrs"]
-[ext_resource type="Texture2D" uid="uid://byq6kmlcfq14y" path="res://assets/hamper_full_dry_clean.png" id="3_tq2a4"]
-[ext_resource type="Texture2D" uid="uid://0kpciit868wd" path="res://assets/hamper_full_dry_dirty.png" id="4_n7ggx"]
-[ext_resource type="Texture2D" uid="uid://buy1x5fhjsxvv" path="res://assets/hamper_full_wet.png" id="4_tq2a4"]
+[ext_resource type="Texture2D" uid="uid://dljnbv1ojttu5" path="res://assets/hamper/empty.png" id="2_hlwiq"]
+[ext_resource type="Texture2D" uid="uid://24juxmtriyq2" path="res://assets/hamper/clean.png" id="3_5ajdy"]
+[ext_resource type="Texture2D" uid="uid://dyyl7nlr6j14o" path="res://assets/hamper/dirty.png" id="4_ovkfe"]
+[ext_resource type="Texture2D" uid="uid://djg8j1rti416t" path="res://assets/hamper/wet.png" id="5_va3cp"]
+
+[sub_resource type="Animation" id="Animation_n7ggx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_hlwiq")]
+}
+
+[sub_resource type="Animation" id="Animation_5ajdy"]
+resource_name = "clean"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_5ajdy")]
+}
+
+[sub_resource type="Animation" id="Animation_ovkfe"]
+resource_name = "dirty"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_ovkfe")]
+}
+
+[sub_resource type="Animation" id="Animation_hlwiq"]
+resource_name = "empty"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_hlwiq")]
+}
+
+[sub_resource type="Animation" id="Animation_va3cp"]
+resource_name = "wet"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_va3cp")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5ajdy"]
+_data = {
+&"RESET": SubResource("Animation_n7ggx"),
+&"clean": SubResource("Animation_5ajdy"),
+&"dirty": SubResource("Animation_ovkfe"),
+&"empty": SubResource("Animation_hlwiq"),
+&"wet": SubResource("Animation_va3cp")
+}
 
 [node name="Hamper" type="RigidBody2D" unique_id=1841701046 groups=["hamper"]]
 z_index = 1
 input_pickable = true
 script = ExtResource("1_jnhrs")
-graphic_empty = ExtResource("2_jnhrs")
-graphic_full_dry_clean = ExtResource("3_tq2a4")
-graphic_full_dry_dirty = ExtResource("4_n7ggx")
-graphic_full_wet = ExtResource("4_tq2a4")
-drag_force = null
-drag_damping = null
+graphic_empty = ExtResource("2_hlwiq")
+graphic_full_dry_clean = ExtResource("3_5ajdy")
+graphic_full_dry_dirty = ExtResource("4_ovkfe")
+graphic_full_wet = ExtResource("5_va3cp")
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="." unique_id=1385030802]
-polygon = PackedVector2Array(-175, -30, 175, -30, 120, 100, -120, 100)
+polygon = PackedVector2Array(-15, -4, 15, -4, 10, 10, -10, 10)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1341705435]
 z_index = 1
-texture = ExtResource("2_jnhrs")
+texture = ExtResource("2_hlwiq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=937547458]
+libraries/ = SubResource("AnimationLibrary_5ajdy")

@@ -9,6 +9,8 @@ size = Vector2(5760, 100)
 [node name="World" type="Node2D" unique_id=1794034208]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=418939702]
+position = Vector2(0, 433)
+zoom = Vector2(5, 5)
 
 [node name="Y Bounds" type="StaticBody2D" parent="." unique_id=484946429]
 
