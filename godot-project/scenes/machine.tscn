@@ -3,28 +3,36 @@
 [ext_resource type="Script" uid="uid://b7n8afr24tjuj" path="res://scripts/machine.gd" id="1_73k52"]
 [ext_resource type="Texture2D" uid="uid://bx1jbc00tvodf" path="res://assets/washer_empty_closed.png" id="1_a5lir"]
 [ext_resource type="Texture2D" uid="uid://m83j6wsk2qdm" path="res://assets/washer_empty_open.png" id="3_448ux"]
+[ext_resource type="Texture2D" path="res://assets/washer/open_empty.png" id="3_p2qya"]
+[ext_resource type="Texture2D" path="res://assets/washer/closed_wet.png" id="4_5odi2"]
 [ext_resource type="Texture2D" uid="uid://b8bbcvtnf16yj" path="res://assets/washer_full_closed_wet.png" id="4_wqnt1"]
 [ext_resource type="Texture2D" uid="uid://4w4rkakemdwm" path="res://assets/washer_full_closed_dry_clean.png" id="5_aee78"]
+[ext_resource type="Texture2D" path="res://assets/washer/closed_dry.png" id="5_cse1a"]
 [ext_resource type="Texture2D" uid="uid://cgewgnqjrkdyg" path="res://assets/washer_full_open_wet.png" id="6_aee78"]
+[ext_resource type="Texture2D" path="res://assets/washer/closed_dirty.png" id="6_bjrk4"]
 [ext_resource type="Texture2D" uid="uid://c6gyuinbyt6g1" path="res://assets/washer_full_closed_dry_dirty.png" id="6_hpsch"]
 [ext_resource type="Texture2D" uid="uid://s5aebsserlxs" path="res://assets/washer_full_open_dry_clean.png" id="7_25hvn"]
 [ext_resource type="Texture2D" uid="uid://1cjaddcxtmj2" path="res://assets/washer_full_open_dry_dirty.png" id="8_aee78"]
 [ext_resource type="Texture2D" uid="uid://j1w1jsa68xa6" path="res://assets/washer_spinner_wet.png" id="10_8ub33"]
+[ext_resource type="Texture2D" uid="uid://b3fdyybxk36aj" path="res://assets/washer/spinner_wet.png" id="10_rfyev"]
 [ext_resource type="Script" uid="uid://dt28mp1fk8a8q" path="res://scripts/spinner.gd" id="11_8rvve"]
+[ext_resource type="Texture2D" path="res://assets/washer/closed_empty.png" id="11_p2qya"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a5lir"]
-size = Vector2(500, 500)
+size = Vector2(40, 50)
 
 [node name="Machine" type="Area2D" unique_id=1409377652]
 script = ExtResource("1_73k52")
-graphic_washer_empty_closed = ExtResource("1_a5lir")
-graphic_washer_empty_open = ExtResource("3_448ux")
-graphic_washer_full_closed_wet = ExtResource("4_wqnt1")
-graphic_washer_full_closed_dry_clean = ExtResource("5_aee78")
-graphic_washer_full_closed_dry_dirty = ExtResource("6_hpsch")
+graphic_washer_empty_closed = ExtResource("11_p2qya")
+graphic_washer_empty_open = ExtResource("3_p2qya")
+graphic_washer_full_closed_wet = ExtResource("4_5odi2")
+graphic_washer_full_closed_dry_clean = ExtResource("5_cse1a")
+graphic_washer_full_closed_dry_dirty = ExtResource("6_bjrk4")
 graphic_washer_full_open_wet = ExtResource("6_aee78")
 graphic_washer_full_open_dry_clean = ExtResource("7_25hvn")
 graphic_washer_full_open_dry_dirty = ExtResource("8_aee78")
+graphic_washer_spinner_wet = ExtResource("10_rfyev")
+graphic_washer_spinner_dirty = ExtResource("10_rfyev")
 graphic_dryer_empty_closed = ExtResource("1_a5lir")
 graphic_dryer_empty_open = ExtResource("3_448ux")
 graphic_dryer_full_closed_wet = ExtResource("4_wqnt1")
@@ -33,8 +41,6 @@ graphic_dryer_full_closed_dry_dirty = ExtResource("6_hpsch")
 graphic_dryer_full_open_wet = ExtResource("6_aee78")
 graphic_dryer_full_open_dry_clean = ExtResource("7_25hvn")
 graphic_dryer_full_open_dry_dirty = ExtResource("8_aee78")
-graphic_washer_spinner_wet = ExtResource("10_8ub33")
-graphic_washer_spinner_dirty = ExtResource("10_8ub33")
 graphic_dryer_spinner_wet = ExtResource("10_8ub33")
 graphic_dryer_spinner_dirty = ExtResource("10_8ub33")
 
@@ -42,9 +48,10 @@ graphic_dryer_spinner_dirty = ExtResource("10_8ub33")
 shape = SubResource("RectangleShape2D_a5lir")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2117422900]
-texture = ExtResource("1_a5lir")
+texture = ExtResource("11_p2qya")
 
 [node name="Spinner" type="Sprite2D" parent="." unique_id=1088794798]
+visible = false
 texture = ExtResource("10_8ub33")
 script = ExtResource("11_8rvve")
 

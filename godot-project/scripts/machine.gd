@@ -2,6 +2,9 @@ extends Area2D
 
 @export var is_dryer : bool = false
 
+enum State { EMPTY_CLOSED, EMPTY_OPEN, DIRTY, WET, DRY_CLOSED, DRY_OPEN }
+
+
 @export_group("Washer Graphics")
 @export var graphic_washer_empty_closed : Texture2D
 @export var graphic_washer_empty_open : Texture2D
