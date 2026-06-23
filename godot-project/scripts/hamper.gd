@@ -6,29 +6,16 @@ enum State { EMPTY, CLEAN, DIRTY, WET }
 signal drag_start(hamper: RigidBody2D)
 signal drag_end(hamper: RigidBody2D)
 
-@export var graphic_empty : Texture2D
-@export var graphic_full_dry_clean : Texture2D
-@export var graphic_full_dry_dirty : Texture2D
-@export var graphic_full_wet : Texture2D
+@onready var anim : AnimationPlayer = $AnimationPlayer
 
 @export var drag_force : float = 500.0
 @export var drag_damping : float = 50.0
-
-@onready var graphic : Sprite2D = $Sprite2D
 
 var dragging : drag = drag.NONE
 var state : State = State.DIRTY
 
 func _physics_process(_delta: float) -> void:
-	match state:
-		State.EMPTY:
-			graphic.texture = graphic_empty
-		State.WET:
-			graphic.texture = graphic_full_wet
-		State.CLEAN:
-			graphic.texture = graphic_full_dry_clean
-		State.DIRTY:
-			graphic.texture = graphic_full_dry_dirty
+	anim.play(State.keys()[state].to_lower())
 
 	if dragging:
 		var to_mouse := get_global_mouse_position() - global_position

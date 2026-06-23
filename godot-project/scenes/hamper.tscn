@@ -6,21 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://dyyl7nlr6j14o" path="res://assets/hamper/dirty.png" id="4_ovkfe"]
 [ext_resource type="Texture2D" uid="uid://djg8j1rti416t" path="res://assets/hamper/wet.png" id="5_va3cp"]
 
-[sub_resource type="Animation" id="Animation_n7ggx"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("2_hlwiq")]
-}
-
 [sub_resource type="Animation" id="Animation_5ajdy"]
 resource_name = "clean"
 tracks/0/type = "value"
@@ -83,7 +68,6 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5ajdy"]
 _data = {
-&"RESET": SubResource("Animation_n7ggx"),
 &"clean": SubResource("Animation_5ajdy"),
 &"dirty": SubResource("Animation_ovkfe"),
 &"empty": SubResource("Animation_hlwiq"),
@@ -94,17 +78,13 @@ _data = {
 z_index = 1
 input_pickable = true
 script = ExtResource("1_jnhrs")
-graphic_empty = ExtResource("2_hlwiq")
-graphic_full_dry_clean = ExtResource("3_5ajdy")
-graphic_full_dry_dirty = ExtResource("4_ovkfe")
-graphic_full_wet = ExtResource("5_va3cp")
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="." unique_id=1385030802]
 polygon = PackedVector2Array(-15, -4, 15, -4, 10, 10, -10, 10)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1341705435]
 z_index = 1
-texture = ExtResource("2_hlwiq")
+texture = ExtResource("3_5ajdy")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=937547458]
 libraries/ = SubResource("AnimationLibrary_5ajdy")
